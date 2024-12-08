@@ -9,43 +9,66 @@ const MAIN_CURRENCIES = [
   { code: 'jpy', flag: '🇯🇵', name: 'Japanese Yen' },
   { code: 'gbp', flag: '🇬🇧', name: 'British Pound' },
   { code: 'cny', flag: '🇨🇳', name: 'Chinese Yuan' },
+  { code: 'chf', flag: '🇨🇭', name: 'Swiss Franc' },
+  { code: 'cad', flag: '🇨🇦', name: 'Canadian Dollar' },
+  { code: 'aud', flag: '🇦🇺', name: 'Australian Dollar' },
+  { code: 'nzd', flag: '🇳🇿', name: 'New Zealand Dollar' },
+  { code: 'sgd', flag: '🇸🇬', name: 'Singapore Dollar' },
 ]
 
-// Currency code to flag and name mapping
 const CURRENCY_META: Record<string, { flag: string; name: string }> = {
+  // Americas
   usd: { flag: '🇺🇸', name: 'US Dollar' },
-  eur: { flag: '🇪🇺', name: 'Euro' },
-  jpy: { flag: '🇯🇵', name: 'Japanese Yen' },
-  gbp: { flag: '🇬🇧', name: 'British Pound' },
-  cny: { flag: '🇨🇳', name: 'Chinese Yuan' },
-  aud: { flag: '🇦🇺', name: 'Australian Dollar' },
   cad: { flag: '🇨🇦', name: 'Canadian Dollar' },
-  chf: { flag: '🇨🇭', name: 'Swiss Franc' },
-  inr: { flag: '🇮🇳', name: 'Indian Rupee' },
-  krw: { flag: '🇰🇷', name: 'South Korean Won' },
-  brl: { flag: '🇧🇷', name: 'Brazilian Real' },
-  rub: { flag: '🇷🇺', name: 'Russian Ruble' },
-  try: { flag: '🇹🇷', name: 'Turkish Lira' },
-  ngn: { flag: '🇳🇬', name: 'Nigerian Naira' },
-  idr: { flag: '🇮🇩', name: 'Indonesian Rupiah' },
-  php: { flag: '🇵🇭', name: 'Philippine Peso' },
   mxn: { flag: '🇲🇽', name: 'Mexican Peso' },
-  thb: { flag: '🇹🇭', name: 'Thai Baht' },
-  vnd: { flag: '🇻🇳', name: 'Vietnamese Dong' },
-  pkr: { flag: '🇵🇰', name: 'Pakistani Rupee' },
-  egp: { flag: '🇪🇬', name: 'Egyptian Pound' },
+  brl: { flag: '🇧🇷', name: 'Brazilian Real' },
+  ars: { flag: '🇦🇷', name: 'Argentine Peso' },
   clp: { flag: '🇨🇱', name: 'Chilean Peso' },
+  bmd: { flag: '🇧🇲', name: 'Bermudian Dollar' },
+  vef: { flag: '🇻🇪', name: 'Venezuelan Bolívar' },
+
+  // Europe
+  eur: { flag: '🇪🇺', name: 'Euro' },
+  gbp: { flag: '🇬🇧', name: 'British Pound' },
+  chf: { flag: '🇨🇭', name: 'Swiss Franc' },
+  nok: { flag: '🇳🇴', name: 'Norwegian Krone' },
+  sek: { flag: '🇸🇪', name: 'Swedish Krona' },
+  dkk: { flag: '🇩🇰', name: 'Danish Krone' },
   pln: { flag: '🇵🇱', name: 'Polish Złoty' },
   czk: { flag: '🇨🇿', name: 'Czech Koruna' },
   huf: { flag: '🇭🇺', name: 'Hungarian Forint' },
-  ils: { flag: '🇮🇱', name: 'Israeli New Shekel' },
-  sar: { flag: '🇸🇦', name: 'Saudi Riyal' },
-  aed: { flag: '🇦🇪', name: 'UAE Dirham' },
-  pen: { flag: '🇵🇪', name: 'Peruvian Sol' },
-  cop: { flag: '🇨🇴', name: 'Colombian Peso' },
+  uah: { flag: '🇺🇦', name: 'Ukrainian Hryvnia' },
+
+  // Asia & Pacific
+  jpy: { flag: '🇯🇵', name: 'Japanese Yen' },
+  cny: { flag: '🇨🇳', name: 'Chinese Yuan' },
+  hkd: { flag: '🇭🇰', name: 'Hong Kong Dollar' },
+  krw: { flag: '🇰🇷', name: 'South Korean Won' },
+  inr: { flag: '🇮🇳', name: 'Indian Rupee' },
+  twd: { flag: '🇹🇼', name: 'New Taiwan Dollar' },
+  sgd: { flag: '🇸🇬', name: 'Singapore Dollar' },
+  idr: { flag: '🇮🇩', name: 'Indonesian Rupiah' },
   myr: { flag: '🇲🇾', name: 'Malaysian Ringgit' },
+  thb: { flag: '🇹🇭', name: 'Thai Baht' },
+  vnd: { flag: '🇻🇳', name: 'Vietnamese Dong' },
+  php: { flag: '🇵🇭', name: 'Philippine Peso' },
+  pkr: { flag: '🇵🇰', name: 'Pakistani Rupee' },
+  bdt: { flag: '🇧🇩', name: 'Bangladeshi Taka' },
+  nzd: { flag: '🇳🇿', name: 'New Zealand Dollar' },
+  aud: { flag: '🇦🇺', name: 'Australian Dollar' },
+  lkr: { flag: '🇱🇰', name: 'Sri Lankan Rupee' },
+  mmk: { flag: '🇲🇲', name: 'Myanmar Kyat' },
+
+  // Middle East & Africa
+  aed: { flag: '🇦🇪', name: 'UAE Dirham' },
+  sar: { flag: '🇸🇦', name: 'Saudi Riyal' },
+  ils: { flag: '🇮🇱', name: 'Israeli New Shekel' },
+  try: { flag: '🇹🇷', name: 'Turkish Lira' },
   zar: { flag: '🇿🇦', name: 'South African Rand' },
-  // Add more currencies as needed
+  bhd: { flag: '🇧🇭', name: 'Bahraini Dinar' },
+  kwd: { flag: '🇰🇼', name: 'Kuwaiti Dinar' },
+  ngn: { flag: '🇳🇬', name: 'Nigerian Naira' },
+  gel: { flag: '🇬🇪', name: 'Georgian Lari' },
 }
 
 const SATS_PER_BTC = 100_000_000
@@ -65,7 +88,7 @@ export async function getCurrencyRates(): Promise<{
   }
 
   const supportedCurrencies: string[] = await response.json()
-
+  
   // Filter out cryptocurrencies and keep only fiat currencies with metadata
   const fiatCurrencies = supportedCurrencies.filter(code => 
     CURRENCY_META[code] !== undefined
@@ -96,7 +119,7 @@ export async function getCurrencyRates(): Promise<{
       satParity: satsPerUnit <= 1,
       change24h: -change24h
     }
-  }).filter(rate => !isNaN(rate.satsPerUnit)) // Filter out any invalid rates
+  }).filter(rate => !isNaN(rate.satsPerUnit))
 
   const mainCurrencies = MAIN_CURRENCIES.map(main => 
     allRates.find(rate => rate.code === main.code)!
@@ -109,7 +132,7 @@ export async function getCurrencyRates(): Promise<{
   const nearestToParity = allRates
     .filter(rate => !rate.satParity && !MAIN_CURRENCIES.find(m => m.code === rate.code))
     .sort((a, b) => a.satsPerUnit - b.satsPerUnit)
-    .slice(0, 10) // Show top 10 closest to parity
+    .slice(0, 10)
 
   return {
     mainCurrencies,
